@@ -25,7 +25,6 @@ import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.data.binder.ValidationException;
 import com.vaadin.flow.data.renderer.LitRenderer;
 import com.vaadin.flow.router.BeforeEnterEvent;
-import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.Menu;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
@@ -35,14 +34,15 @@ import com.vaadin.flow.spring.data.VaadinSpringDataHelpers;
 import tech.lova.data.SamplePerson;
 import tech.lova.services.SamplePersonService;
 //@Menu(order = 1, icon = LineAwesomeIconUrl.COLUMNS_SOLID)
+import tech.lova.views.abstracts.CAbstractPage;
 
 @PageTitle("Master-Detail")
 @Route("master-detail/:samplePersonID?/:action?(edit)")
 @Menu(order = 0, icon = "vaadin:users", title = "Settings.Users")
 @AnonymousAllowed
 @Uses(Icon.class)
-public class MasterDetailView extends Div implements BeforeEnterObserver {
-
+public class MasterDetailView extends CAbstractPage {
+// implements BeforeEnterObserver
 	private final String SAMPLEPERSON_ID = "samplePersonID";
 	private final String SAMPLEPERSON_EDIT_ROUTE_TEMPLATE = "master-detail/%s/edit";
 
